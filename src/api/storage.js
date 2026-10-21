@@ -4,7 +4,7 @@ const STORAGE_KEY = 'fleetdesk.db';
 
 // Bump this whenever the shape of a stored vehicle changes:
 // every browser then drops its old copy and re-seeds.
-export const SCHEMA_VERSION = 1;
+const SCHEMA_VERSION = 1;
 
 // Used only when localStorage is unavailable (private mode, quota exceeded).
 let memoryDb = null;

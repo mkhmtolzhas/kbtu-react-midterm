@@ -1,7 +1,7 @@
 import { DISTRICTS, MODELS_BY_CLASS } from '../utils/constants.js';
 import { statusesForClass } from '../utils/vehicle.js';
 
-export const SEED_COUNT = 180;
+const SEED_COUNT = 180;
 
 // Fixed "generation date" + fixed PRNG seed => every visitor gets the same fleet.
 const SEED_DATE = new Date('2026-10-15T09:00:00+05:00');

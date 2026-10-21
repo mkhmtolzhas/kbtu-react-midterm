@@ -7,7 +7,7 @@ import {
 const DAY_MS = 24 * 60 * 60 * 1000;
 const PLATE_PATTERN = /^(\d{3})\s*([A-Z]{2,3})\s*(\d{2})$/;
 
-export function isElectric(vehicleClass) {
+function isElectric(vehicleClass) {
   return vehicleClass === 'electric';
 }
 
