@@ -1,9 +1,16 @@
 import { useEffect, useState } from 'react';
 
+function isPlainObject(value) {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
 function readSessionValue(key, fallback) {
   try {
     const raw = sessionStorage.getItem(key);
-    return raw === null ? fallback : JSON.parse(raw);
+    if (raw === null) return fallback;
+    const stored = JSON.parse(raw);
+    // Fields added to the defaults after the value was saved still get their default.
+    return isPlainObject(fallback) && isPlainObject(stored) ? { ...fallback, ...stored } : stored;
   } catch {
     return fallback;
   }
