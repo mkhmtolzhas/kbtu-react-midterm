@@ -1,7 +1,7 @@
 export default function SearchBar({ value, onChange }) {
   return (
     <div className="search-bar">
-      <label className="field__label" htmlFor="vehicle-search">Search</label>
+      <label className="field__label" htmlFor="vehicle-search">Search by plate, brand or model</label>
       <div className="search-bar__control">
         <svg className="search-bar__icon" viewBox="0 0 20 20" aria-hidden="true">
           <circle cx="9" cy="9" r="6" />
@@ -13,7 +13,7 @@ export default function SearchBar({ value, onChange }) {
           type="search"
           value={value}
           onChange={(event) => onChange(event.target.value)}
-          placeholder="Plate, brand or model — e.g. 123 ABC, Camry"
+          placeholder="e.g. 123 ABC or Camry"
           autoComplete="off"
           spellCheck="false"
         />

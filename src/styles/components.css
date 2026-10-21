@@ -506,7 +506,7 @@ select.input {
 }
 
 .sort-control__direction {
-  min-width: 128px;
+  flex: none;
 }
 
 /* Fleet summary tiles */
@@ -519,8 +519,13 @@ select.input {
 
 .fleet-summary__tiles {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-2);
+}
+
+/* On phones "All vehicles" spans the row, the four statuses form a 2 × 2 grid. */
+.fleet-summary__tiles > li:first-child {
+  grid-column: 1 / -1;
 }
 
 .summary-tile {
@@ -599,7 +604,7 @@ select.input {
 
 .vehicle-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
   gap: var(--space-4);
   transition: opacity 0.2s;
 }
@@ -843,11 +848,25 @@ select.input {
 }
 
 @media (min-width: 640px) {
+  .fleet-summary__tiles {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .fleet-summary__tiles > li:first-child {
+    grid-column: auto;
+  }
+
   .pagination__list {
     display: flex;
   }
 
   .pagination__status {
     display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sort-control__direction {
+    min-width: 128px;
   }
 }
